@@ -1,12 +1,18 @@
 supgeek-rod/faker-zh
 ============================================
 
-provide chinese lorem to [fakerphp/faker](https://github.com/fakerphp/faker)
+Provide chinese lorem to [fakerphp/faker](https://github.com/fakerphp/faker)
+
+[![Latest Stable Version](https://poser.pugx.org/supgeek-rod/faker-zh/v)](https://packagist.org/packages/supgeek-rod/faker-zh) 
+[![Total Downloads](https://poser.pugx.org/supgeek-rod/faker-zh/downloads)](https://packagist.org/packages/supgeek-rod/faker-zh) 
+[![Latest Unstable Version](https://poser.pugx.org/supgeek-rod/faker-zh/v/unstable)](https://packagist.org/packages/supgeek-rod/faker-zh) 
+[![License](https://poser.pugx.org/supgeek-rod/faker-zh/license)](https://packagist.org/packages/supgeek-rod/faker-zh) 
+[![PHP Version Require](https://poser.pugx.org/supgeek-rod/faker-zh/require/php)](https://packagist.org/packages/supgeek-rod/faker-zh)
 
 ## Install
 
 ```bash
-$ composer require supgeek-rod/faker-zh:dev-develop
+$ composer require supgeek-rod/faker-zh
 ```
 
 ## Usage
