@@ -17,5 +17,8 @@
     ],
     "require": {
         "fakerphp/faker": "^1.9"
+    },
+    "require-dev": {
+        "league/climate": "^3.8"
     }
 }
