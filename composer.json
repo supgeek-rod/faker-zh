@@ -2,13 +2,8 @@
     "name": "supgeek-rod/faker-zh",
     "keywords": ["faker", "chinese", "zh", "CN", "data", "lorem"],
     "description": "provide chinese lorem to fakerphp/faker",
-    "license": "MIT",
     "type": "library",
-    "autoload": {
-        "psr-4": {
-            "SupGeekRod\\FakerZh\\": "src/"
-        }
-    },
+    "license": "MIT",
     "authors": [
         {
             "name": "supgeek-rod",
@@ -16,9 +11,15 @@
         }
     ],
     "require": {
+        "php": "^7.1 || ^8.0",
         "fakerphp/faker": "^1.9"
     },
     "require-dev": {
         "league/climate": "^3.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "SupGeekRod\\FakerZh\\": "src/"
+        }
     }
 }
