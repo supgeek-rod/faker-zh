@@ -11,7 +11,8 @@ Provide chinese lorem to [fakerphp/faker](https://github.com/fakerphp/faker) or 
 
 ## Install
 
-requires PHP >= 7.1
+require PHP >= 7.1 || >= 8.0   
+require fakerphp/faker >= 1.9
 
 ```bash
 $ composer require supgeek-rod/faker-zh
@@ -67,7 +68,7 @@ $faker->stateAbbr();                                // 甘
 $faker->state();                                    // 吉林省
 $faker->city();                                     // 昆明
 $faker->area();                                     // 兴山区
-$faker->address();                                  // 天津高明区; TODO: 需要优化 => (state + city + area + streetAddress)
+$faker->address();                                  // 天津高明区
 
 $faker->streetName();                               // 廉 Street; TODO: 需要优化
 $faker->streetAddress();                            // 91 邹 Street; TODO: 需要优化
@@ -92,7 +93,7 @@ $faker->company();                                  // 四通科技有限公司
 $faker->companyPrefix();                            // 四通
 $faker->companySuffix();                            // 科技有限公司
 $faker->catchPhrase();                              // 中国移动通信，沟通从心开始！
-$faker->jobTitle();                                 // 更感; TODO: 提供支持
+$faker->jobTitle();                                 // 更感; TODO: 需要优化
 ```
 
 ### Faker\Provider\zh_CN\Internet
@@ -109,8 +110,8 @@ $faker->password();                                 // 'k&|X+a45*2['
 $faker->domainName();                               // 'wolffdeckow.net'
 $faker->domainWord();                               // 'feeney'
 $faker->tld();                                      // 'biz'
-$faker->url();                                      // 'http://yan.biz.cn/相引-构容-量分-候党-半至-何受-准治.html'; TODO: slug 修正成英文
-$faker->slug();                                     // '织青-文影-会度-形准-会'; TODO: 修正成英文
+$faker->url();                                      // 'http://yan.biz.cn/相引-构容-量分-候党-半至-何受-准治.html'
+$faker->slug();                                     // '织青-文影-会度-形准-会'
 $faker->ipv4();                                     // '109.133.32.252'
 $faker->localIpv4();                                // '10.242.58.8'
 $faker->ipv6();                                     // '8e65:933d:22ee:a232:f1c1:2741:1f10:117c'
@@ -172,13 +173,14 @@ $faker->creditCardExpirationDateString();       // '04/13'
 $faker->creditCardDetails();                    // array('MasterCard', '4485480221084675', '原桂芝', '04/13')
 
 // Generates a random IBAN. Set $countryCode to null for a random country
-$faker->iban($countryCode);                     // 'IT31A8497112740YZ575DJ28BP4'
+$faker->iban($countryCode = null);              // 'IT31A8497112740YZ575DJ28BP4'
 $faker->swiftBicNumber();                       // 'RZTIAT22263'
 ```
 
 ## Test
 
 ```bash
+$ cd ./vendor/supgeek-rod/faker-zh            // Maybe you should go to this package directory
 $ composer install --dev
 $ php tests/run.php  
 ```
