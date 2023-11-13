@@ -6,7 +6,7 @@ class Lorem extends \Faker\Provider\Lorem
 {
     protected static $encoding = 'UTF-8';
 
-    protected static $chatList = array(
+    protected static $charList = array(
         '的', '一', '是', '在', '不', '了', '有', '和', '人', '这',
         '中', '大', '为', '上', '个', '国', '我', '以', '要', '他',
         '时', '来', '用', '们', '生', '到', '作', '地', '于', '出',
@@ -60,7 +60,7 @@ class Lorem extends \Faker\Provider\Lorem
     );
 
     protected static $wordList = [
-        '月亮', '大海', '太阳', '山峰', '日出', '星空', '冰山', '水平', '自然', '不伦', '触氏', '士伦', '异伦', '容身', '深耕', '臼齿', '形容', '英伦', '参触', '奔触', '夷伦', '触意', '深邃', '杵触', '至诚', '时伦', '司伦', '斁伦', '余习', '新习', '中伦', '衍习', '敦实', '抒情',
+        '月亮', '大海', '太阳', '山峰', '日出', '星空', '冰山', '水平', '自然', '不伦', '士伦', '异伦', '容身', '深耕', '臼齿', '形容', '英伦', '参触', '奔触', '夷伦', '触意', '深邃', '杵触', '至诚', '时伦', '司伦', '斁伦', '余习', '新习', '中伦', '衍习', '敦实', '抒情',
         '四季', '山水', '天气', '人物', '人生', '生活', '节日', '动物', '植物', '食物', '古籍', '梅花', '兰花', '荷花', '竹子', '桂花', '莲花',
         '犀牛', '燕子', '麻雀', '乌鸦', '大雁', '喜鹊', '蝴蝶',
         '鼠', '牛', '虎', '兔', '龙', '蛇', '马', '羊', '猴', '鸡', '狗', '猪',
@@ -69,54 +69,79 @@ class Lorem extends \Faker\Provider\Lorem
     ];
 
     protected static $sentenceList = [
-        '文学态度和创作实践均倾向于现实主义。主张文学是一种工作，而且又是于人生很切要的一种工作。',
-        '文学研究会的主要成员朱自清、叶绍钧（叶圣陶）、刘延陵、俞平伯等之后在上海成立了现代文坛上第一个新诗社团──中国新诗社。',
-        '并于次年1月创办了第一个新诗专刊《诗》。',
+        '文学态度和创作实践均倾向于现实主义。',
+        '主张文学是一种工作，而且又是于人生很切要的一种工作。',
+        '文学研究会的主要成员朱自清、叶绍钧（叶圣陶）、刘延陵、俞平伯等。',
+        '在上海成立了现代文坛上第一个新诗社团──中国新诗社。',
+        '于次年1月创办了第一个新诗专刊《诗》。',
         '1949年，毛泽东领导下的中国共产党和中国人民解放军在第二次国共内战中取得优势。',
-        '10月1日宣布成立中华人民共和国中央人民政府，并实际控制中国大陆，与迁至台湾地区的中华民国政府形成至今的台海现状格局。',
+        '10月1日宣布成立中华人民共和国中央人民政府，并实际控制中国大陆。',
+        '中华人民共和国中央人民政府与迁至台湾地区的中华民国政府形成至今的台海现状格局。',
         '中华人民共和国成立初期遵循和平共处五项原则的外交政策。',
-        '1971年在联合国取得原属于中华民国的中国代表权及其联合国安理会常任理事国席位，并陆续加入部分联合国其他专门机构。',
-        'PHP，即“PHP: Hypertext Preprocessor”，是一种被广泛应用的开源通用脚本语言，尤其适用于 Web 开发并可嵌入 HTML 中去。',
-        '它的语法利用了 C、Java 和 Perl，易于学习。该语言的主要目标是允许 web 开发人员快速编写动态生成的 web 页面，但 PHP 的用途远不只于此。',
-        '正如你可能已经知道的那样，Laravel 在发布 Laravel 8 后转向每年发布一次。之前，每 6 个月发布一个主要版本。',
-        '这种转变旨在减轻社区的维护负担，并挑战我们的开发团队在不引入破坏性变化的情况下发布令人惊叹、功能强大的新功能。',
+        '1971年在联合国取得原属于中华民国的中国代表权及其联合国安理会常任理事国席位。',
+        'PHP，即“PHP: Hypertext Preprocessor”。',
+        '是一种被广泛应用的开源通用脚本语言。',
+        '尤其适用于 Web 开发并可嵌入 HTML 中去。',
+        '它的语法利用了 C、Java 和 Perl，易于学习。',
+        '该语言的主要目标是允许 web 开发人员快速编写动态生成的 web 页面，但 PHP 的用途远不只于此。',
+        '正如你可能已经知道的那样',
+        'Laravel 在发布 Laravel 8 后转向每年发布一次。',
+        '之前，每 6 个月发布一个主要版本。',
+        '这种转变旨在减轻社区的维护负担',
+        '并挑战我们的开发团队在不引入破坏性变化的情况下发布令人惊叹、功能强大的新功能。',
         '因此，我们为 Laravel 9 提供了许多强大的功能，而不会破坏向后兼容性。',
         'Laravel 10 继续在 Laravel 9.x 中所做的改进。',
         '通过向所有应用程序骨架方法和所有存根文件引入参数和返回类型。',
         '以及向外部进程启动和交互引入了一种新的开发人员友好的抽象层。',
-        '此外，引入了 Laravel Pennant，为管理你的应用程序的 “特性标志” 提供了一种奇妙的方法。',
-        'Tesla 车辆的安全性在全球范围内位居前列。确保安全性的同时，我们还尽可能让每辆 Tesla 呈现丰富的驾乘乐趣。',
-        '从电子游戏到电影和复活节彩蛋，我们为优化驾乘体验推出了海量功能，且车辆会定期通过空中软件更新不断增加新功能。',
+        '此外，引入了 Laravel Pennant',
+        '为管理你的应用程序的 “特性标志” 提供了一种奇妙的方法。',
+        'Tesla 车辆的安全性在全球范围内位居前列。',
+        '确保安全性的同时，我们还尽可能让每辆 Tesla 呈现丰富的驾乘乐趣。',
+        '从电子游戏到电影和复活节彩蛋，我们为优化驾乘体验推出了海量功能',
+        '车辆会定期通过空中软件更新不断增加新功能。',
         '为了让人类脱离化石燃料，我们需要极大的规模。',
-        'Tesla 的总部位于得克萨斯州，在三大洲运营六家大型垂直整合工厂，员工数量超过 100,000 名。',
+        'Tesla 的总部位于得克萨斯州',
+        '在三大洲运营六家大型垂直整合工厂，员工数量超过 100,000 名。',
         '我们的团队自行设计、制造、销售和维护我们创造的产品。',
         '借助第一性原理，我们解决了一些世界性难题。',
-        '如果您有出色的工作履历，请加入我们，与我们共同应对新一代的工程、制造和运营挑战。',
+        '如果您有出色的工作履历，请加入我们',
+        '与我们共同应对新一代的工程、制造和运营挑战。',
         '腾讯成立于1998年，总部位于中国深圳，公司一直秉承科技向善的宗旨。',
-        '我们的通信和社交服务连接全球逾10亿人，帮助他们与亲友联系，畅享便捷的出行、支付和娱乐生活。',
-        '腾讯发行多款风靡全球的电子游戏及其他优质数字内容，为全球用户带来丰富的互动娱乐体验。',
-        '腾讯还提供云计算、广告、金融科技等一系列企业服务，支持合作伙伴实现数字化转型，促进业务发展。',
+        '我们的通信和社交服务连接全球逾10亿人',
+        '帮助他们与亲友联系，畅享便捷的出行、支付和娱乐生活。',
+        '腾讯发行多款风靡全球的电子游戏及其他优质数字内容',
+        '为全球用户带来丰富的互动娱乐体验。',
+        '腾讯还提供云计算、广告、金融科技等一系列企业服务',
+        '支持合作伙伴实现数字化转型，促进业务发展。',
         '腾讯2004 年于香港联合交易所上市。',
-        '在春季，地球的北半球（3-5月）或南半球（9-11月）开始倾向太阳，受到越来越多的太阳光直射，因而气温开始升高。',
+        '在春季，地球的北半球（3-5月）或南半球（9-11月）开始倾向太阳',
+        '受到越来越多的太阳光直射，因而气温开始升高。',
         '随着冰雪消融，河流水位上涨。',
         '春季植物开始发芽生长，许多鲜花开放。',
-        '冬眠的动物苏醒，许多以卵过冬的动物孵化，鸟类开始迁徙，离开越冬地向繁殖地进发。',
+        '冬眠的动物苏醒，许多以卵过冬的动物孵化',
+        '鸟类开始迁徙，离开越冬地向繁殖地进发。',
         '对农业来说，春季是播种许多农作物的季节，同时也是许多农作物的收成期。',
-        '路德维希·范·贝多芬（德语：Ludwig van Beethoven；1770年12月16日—1827年3月26日），德意志作曲家、钢琴演奏家。',
-        '贝多芬上承古典乐派传统，下启浪漫乐派之风格与精神，因而在音乐史上占有重要的地位。',
-        '贝多芬虽然经历听力下降，仍一直创作音乐，他一生创作了9部交响曲、36首钢琴奏鸣曲',
-        '这些作品无论是在曲式、和声以及织体上都有重大创新，影响了音乐发展史，其中32首钢琴奏鸣曲，第三、五、六、九交响曲和《庄严弥撒》是其代表作，尤其闻名。',
-        '1827年贝多芬因病逝世。在汉字文化圈，贝多芬有“乐圣”之尊称。',
+        '路德维希·范·贝多芬，德意志作曲家、钢琴演奏家。',
+        '贝多芬上承古典乐派传统，下启浪漫乐派之风格与精神',
+        '贝多芬在音乐史上占有重要的地位。',
+        '贝多芬虽然经历听力下降，仍一直创作音乐',
+        '他一生创作了9部交响曲、36首钢琴奏鸣曲',
+        '这些作品无论是在曲式、和声以及织体上都有重大创新，影响了音乐发展史',
+        '其中32首钢琴奏鸣曲，第三、五、六、九交响曲和《庄严弥撒》是其代表作，尤其闻名。',
+        '1827年贝多芬因病逝世。',
+        '在汉字文化圈，贝多芬有“乐圣”之尊称。',
         '普罗米修斯属于泰坦神族。',
         '与众生一样，他服从众神之父宙斯的统治。',
-        '在一次动物祭祀中，他用诡计欺骗了宙斯； 他只把献祭动物没有价值的部分交给他，而为人民保留可食用的肉，因为他们是他的门徒。',
+        '在一次动物祭祀中，他用诡计欺骗了宙斯',
+        '他只把献祭动物没有价值的部分交给他，而为人民保留可食用的肉，因为他们是他的门徒。',
         '作为惩罚，愤怒的宙斯拒绝凡人拥有火种。',
         '普罗米修斯从众神那里偷来了火种，并将其带给了人们。',
         '为此，他奉宙斯之命，在高加索山脉的荒原上受罚。',
         '一只老鹰定期拜访他并啄食他的肝脏。',
         '很久以后，英雄赫拉克勒斯用箭射死了老鹰，才将他从这种折磨中解救出来。',
         '最终普罗米修斯被宙斯赦免并重获自由。',
-        '孔丘（前551年9月28日—前479年4月11日），子姓，孔氏，名丘，字仲尼，后代敬称孔子或孔夫子。',
+        '孔丘（前551年9月28日—前479年4月11日），子姓，孔氏，名丘，字仲尼',
+        '后代敬称孔子或孔夫子',
         '孔子随后开始编修《春秋》一书，是以无天子之名而行天子之事，号称“素王”。',
         '孔子为儒家创始人兼主要代表人物，在儒家四大圣人之中被奉为“至圣”，其地位为儒家圣贤之中最高者。',
         '孔子逝世后，后人尊称其为至圣先师、万世师表，并建孔庙以祭祀。',
@@ -135,8 +160,10 @@ class Lorem extends \Faker\Provider\Lorem
         '然而现在却非常之蓝，闪闪地䀹着几十个星星的眼，冷眼。',
         '他的口角上现出微笑，似乎自以为大有深意，而将繁霜洒在我的园里的野花草上。',
         '微积分学在科学、商学和工程学领域有广泛的应用。',
-        '并成为了现代大学教育的重要组成部分，用来解决那些仅依靠代数学和几何学不能有效解决的问题。',
-        '微积分学在代数学和几何学的基础上建立起来，其中微分是指函数的局部变化率的一种线性描述，包括求导数和其运算，是一套关于变化率的理论。',
+        '成为了现代大学教育的重要组成部分，用来解决那些仅依靠代数学和几何学不能有效解决的问题。',
+        '微积分学在代数学和几何学的基础上建立起来',
+        '其中微分是指函数的局部变化率的一种线性描述',
+        '包括求导数和其运算，是一套关于变化率的理论。',
         '联合国，是一个由主权国家组成的政府间国际组织',
         '致力于促进各国在国际法、国际安全、经济发展、社会进步、人权、公民自由、政治自由、民主及实现持久世界和平方面的合作。',
         '联合国成立于第二次世界大战结束后的1945年，取代国际联盟以防止战争的发生并为各国提供对话平台。',
@@ -170,120 +197,106 @@ class Lorem extends \Faker\Provider\Lorem
 
     /**
      * Generate a random single Chinese character
+     *
      * @example '的' '一' '是'
+     *
      * @return string
      */
     public static function char()
     {
-        return static::randomElement(static::$wordList);
+        return static::randomElement(static::$charList);
     }
 
     /**
      * Generate an array of random characters
      *
-     * @example array('的', '一', '是')
      * @param  integer      $nb     how many characters to return
      * @param  bool         $asText if true the sentences are returned as one string
+     *
+     * @example array('的', '一', '是')
+     *
      * @return array|string
      */
     public static function chars($nb = 3, $asText = false)
     {
-        $chars = static::randomElements(static::$wordList, $nb);
+        $chars = static::randomElements(static::$charList, $nb);
+
         return $asText ? implode('', $chars) : $chars;
     }
 
     /**
      * Generate a random word
-     * A chinese word usually contains 1 - 4 single character.
      *
-     * Character numbers : Frequency
-     * 1 : 10%
-     * 2 : 60%
-     * 3 : 10%
-     * 4 : 20%
-     * The generated words may be unreadable by people.
+     * @example '犀牛'
      *
-     * Usage:
-     *     Lorem::word();
-     *     Lorem::word(2); // generate word contains exact 2 chars
-     *
-     * @param  integer  $nb  (optional) how many characters the word contains
-     * @example '的' '的一' '的一是' '的一是在'
      * @return string
      */
     public static function word()
     {
-        $num_args = func_num_args();
-        if ($num_args >= 1) {
-            $nb = func_get_arg(0);
-            if ($nb > 7) {
-                throw new \InvalidArgumentException('Chinese word must contain no more than 7 characters');
-            }
-        } else {
-            $nb = static::randomizeCharacterNumber();
-        }
-        return static::chars($nb, true);
+        return static::randomElement(static::$wordList);
     }
 
     /**
      * Generate an array of random words
      *
-     * @example array('的一', '的一是', '的一是在')
      * @param  integer      $nb     how many words to return
      * @param  bool         $asText if true the sentences are returned as one string
+     *
+     * @example array('猴', '节日', '子弟兵')
+     *
      * @return array|string
      */
     public static function words($nb = 3, $asText = false)
     {
-        $words = array();
-        for ($i=0; $i < $nb; $i++) {
-            $words[] = static::word();
-        }
+        $words = static::randomElements(static::$wordList, $nb);
 
-        // No space between Chinese words in sentences
         return $asText ? implode('', $words) : $words;
     }
 
     /**
      * Generate a random sentence
      *
-     * @example '的一是在不了有。'
-     * @param integer $nbWords         around how many words the sentence should contain
-     * @param boolean $variableNbWords set to false if you want exactly $nbWords returned,
+     * @param integer $nbSentences         around how many words the sentence should contain
+     * @param boolean $variableNbSentences set to false if you want exactly $nbSentences returned,
      *                                  otherwise $nbWords may vary by +/-40% with a minimum of 1
+     *
+     * @example '地球同时进行自转和公转运动，分别产生了昼夜及四季的变化更替，一太阳日自转一周，一太阳年公转一周。'
+     *
      * @return string
      */
-    public static function sentence($nbWords = 6, $variableNbWords = true)
+    public static function sentence($nbSentences = 3, $variableNbSentences = true)
     {
-        if ($nbWords <= 0) {
-            return '';
-        }
-        if ($variableNbWords) {
-            $nbWords = self::randomizeNbElements($nbWords);
+        $sentence = '';
+
+        if ($nbSentences > 0) {
+            if ($variableNbSentences) $nbSentences = self::randomizeNbElements($nbSentences);
+
+            for ($i = 0; $i < $nbSentences; $i++) {
+                $sentence .= static::randomElement(static::$sentenceList);
+            }
         }
 
-        $sentence = static::words($nbWords, true);
-        // Chinese characters do not need ucfirst
-
-        return $sentence . '。';
+        return $sentence;
     }
 
     /**
      * Generate an array of sentences
      *
-     * @example array('的一是在不了有。', '和人这中大。')
      * @param  integer      $nb     how many sentences to return
      * @param  bool         $asText if true the sentences are returned as one string
+     *
+     * @example array('的一是在不了有。', '和人这中大。')
+     *
      * @return array|string
      */
     public static function sentences($nb = 3, $asText = false)
     {
-        $sentences = array();
-        for ($i=0; $i < $nb; $i++) {
+        $sentences = [];
+
+        for ($i = 0; $i < $nb; $i++) {
             $sentences[] = static::sentence();
         }
 
-        // No space between sentence in Chinese
         return $asText ? implode('', $sentences) : $sentences;
     }
 
@@ -296,11 +309,12 @@ class Lorem extends \Faker\Provider\Lorem
      *                                      otherwise $nbSentences may vary by +/-40% with a minimum of 1
      * @return string
      */
-    public static function paragraph($nbSentences = 3, $variableNbSentences = true)
+    public static function paragraph($nbSentences = 6, $variableNbSentences = true)
     {
         if ($nbSentences <= 0) {
             return '';
         }
+
         if ($variableNbSentences) {
             $nbSentences = self::randomizeNbElements($nbSentences);
         }
@@ -319,6 +333,7 @@ class Lorem extends \Faker\Provider\Lorem
     public static function paragraphs($nb = 3, $asText = false)
     {
         $paragraphs = array();
+
         for ($i=0; $i < $nb; $i++) {
             $paragraphs []= static::paragraph();
         }
@@ -330,11 +345,11 @@ class Lorem extends \Faker\Provider\Lorem
      * Generate a text string.
      * Depending on the $maxNbChars, returns a string made of words, sentences, or paragraphs.
      *
-     * @example '的一是。' '的一是在不了有。' '的一是在不了有。和人这中大。为上个国我以。'
-     *
      * @param  integer $maxNbChars Maximum number of characters the text should contain (minimum 2).
      *                             CAUTION: 1 Chinese character == 3 bytes (UTF-8),
      *                             the parameter is maximum number of CHARACTERS, not number of BYTES.
+     *
+     * @example '与我们共同应对新一代的工程、制造和运营挑战。它的语法利用了 C、Java 和 Perl，易于学习。在汉字文化圈，贝多芬有“乐圣”之尊称。与我们共同应对新一代的工程、制造和运营挑战。PHP，即“PHP: Hypertext Preprocessor”。1827年贝多芬因病逝世。从电子游戏到电影和复活节彩蛋，我们为优化驾乘体验推出了海量功能借助第一性原理，我们解决了一些世界性难题。在汉字文化圈，贝多。'
      *
      * @return string
      */
@@ -344,48 +359,16 @@ class Lorem extends \Faker\Provider\Lorem
             throw new \InvalidArgumentException('text() can only generate text of at least 2 characters');
         }
 
-        $type = ($maxNbChars < 15) ? 'word' : (($maxNbChars < 100) ? 'sentence' : 'paragraph');
+        $text = '';
+        $size = 0;
 
-        $text = array();
-        while (empty($text)) {
-            $size = 0;
-
-            // until $maxNbChars is reached
-            while ($size < $maxNbChars) {
-                $word   = static::$type();
-                $text[] = $word;
-
-                $size += static::strlen($word);
-            }
-
-            array_pop($text);
+        while ($size < $maxNbChars) {
+            $sentence = static::sentence();
+            $text .= $sentence;
+            $size += static::strlen($sentence);
         }
 
-        if ($type === 'word') {
-            // end sentence with full stop
-            $text[count($text) - 1] .= '。';
-        }
-
-        return implode('', $text);
-    }
-
-    /**
-     * Character numbers : Frequency
-     * 1 : 10%
-     * 2 : 60%
-     * 3 : 10%
-     * 4 : 20%
-     * @return int
-     */
-    protected static function randomizeCharacterNumber()
-    {
-        static $characterNumber = array(
-            1,
-            2, 2, 2, 2, 2, 2,
-            3,
-            4, 4,
-        );
-        return $characterNumber[static::numberBetween(0, count($characterNumber) - 1)];
+        return mb_substr($text, 0, ($maxNbChars - 1)) . '。';
     }
 
     protected static function strlen($str)
@@ -399,5 +382,10 @@ class Lorem extends \Faker\Provider\Lorem
             // CAUTION: Only for Chinese UTF-8 characters.
             return (int)(self::strlen($str) / 3);
         }
+    }
+
+    protected static function randomizeNbElements($nbElements)
+    {
+        return (int) ($nbElements * self::numberBetween(60, 140) / 100) + 1;
     }
 }
