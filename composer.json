@@ -21,5 +21,10 @@
         "psr-4": {
             "SupGeekRod\\FakerZh\\": "src/"
         }
+    },
+    "scripts": {
+        "test": [
+            "@php tests/run.php"
+        ]
     }
 }
