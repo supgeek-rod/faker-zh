@@ -47,17 +47,17 @@ $faker->text($maxNbChars = 200);                                            // '
 ### Faker\Provider\zh_CN\Person
 
 ```php
-$faker->title($gender = null|'male'|'female');                  // 老师
+$faker->title($gender = null|'male'|'female');                              // 老师
 
-$faker->name($gender = null|'male'|'female');                   // 谷桂芝
-$faker->lastName();                                             // 稽
-$faker->firstName($gender = null|'male'|'female');              // 玉华
+$faker->name($gender = null|'male'|'female');                               // 谷桂芝
+$faker->lastName();                                                         // 稽
+$faker->firstName($gender = null|'male'|'female');                          // 玉华
 
-$faker->titleMale();                                            // 老师
-$faker->firstNameMale();                                        // 博
+$faker->titleMale();                                                        // 老师
+$faker->firstNameMale();                                                    // 博
 
-$faker->titleFemale();                                          // 小组
-$faker->firstNameFemale();                                      // 瑶
+$faker->titleFemale();                                                      // 小组
+$faker->firstNameFemale();                                                  // 瑶
 ```
 
 ### Faker\Provider\zh_CN\Address
@@ -136,51 +136,50 @@ $faker->dateTimeThisDecade($max = 'now', $timezone = null);         // DateTime(
 $faker->dateTimeThisYear($max = 'now', $timezone = null);           // DateTime('2011-02-27 20:52:14', 'Africa/Lagos')
 $faker->dateTimeThisMonth($max = 'now', $timezone = null);          // DateTime('2011-10-23 13:46:23', 'Antarctica/Vostok')
 
-$faker->year($max = 'now');                     // '1993'
-$faker->month($max = 'now');                    // '06'
-$faker->dayOfMonth($max = 'now');               // '04'
-$faker->monthName($max = 'now');                // '六月'
-$faker->dayOfWeek($max = 'now');                // '星期日'
-$faker->amPm($max = 'now');                     // '上午'
+$faker->year($max = 'now');                                         // '1993'
+$faker->month($max = 'now');                                        // '06'
+$faker->dayOfMonth($max = 'now');                                   // '04'
+$faker->monthName($max = 'now');                                    // '六月'
+$faker->dayOfWeek($max = 'now');                                    // '星期日'
+$faker->amPm($max = 'now');                                         // '上午'
 
-$faker->century();                              // 'VI'
-$faker->timezone();                             // 'Asia/Chongqing'
+$faker->century();                                                  // 'VI'
+$faker->timezone();                                                 // 'Asia/Chongqing'
 ```
 
 ### Faker\Provider\zh_CN\Color
 
 ```php
-$faker->hexcolor();                             // '#fa3cc2'
-$faker->rgbcolor();                             // '0,255,122'
-$faker->rgbColorAsArray();                      // array(0,255,122)
-$faker->rgbCssColor();                          // 'rgb(0,255,122)'
-$faker->safeColorName();                        // '粟色'
-$faker->colorName();                            // '乌贼墨色'
-$faker->hslColor();                             // '340,50,20'
-$faker->hslColorAsArray();                      // array(340,50,20)
+$faker->hexcolor();                                                 // '#fa3cc2'
+$faker->rgbcolor();                                                 // '0,255,122'
+$faker->rgbColorAsArray();                                          // array(0,255,122)
+$faker->rgbCssColor();                                              // 'rgb(0,255,122)'
+$faker->safeColorName();                                            // '粟色'
+$faker->colorName();                                                // '乌贼墨色'
+$faker->hslColor();                                                 // '340,50,20'
+$faker->hslColorAsArray();                                          // array(340,50,20)
 ```
 
 ### Faker\Provider\zh_CN\Payment
 
 ```php
 
-$faker->bank();                                 // '中国建设银行'
+$faker->bank();                                                     // '中国建设银行'
 
-$faker->creditCardType();                       // 'MasterCard'
-$faker->creditCardNumber();                     // '4485480221084675'
-$faker->creditCardExpirationDate();             // DateTime object
-$faker->creditCardExpirationDateString();       // '04/13'
-$faker->creditCardDetails();                    // array('MasterCard', '4485480221084675', '原桂芝', '04/13')
+$faker->creditCardType();                                           // 'MasterCard'
+$faker->creditCardNumber();                                         // '4485480221084675'
+$faker->creditCardExpirationDate();                                 // DateTime object
+$faker->creditCardExpirationDateString();                           // '04/13'
+$faker->creditCardDetails();                                        // array('MasterCard', '4485480221084675', '原桂芝', '04/13')
 
-// Generates a random IBAN. Set $countryCode to null for a random country
-$faker->iban($countryCode = null);              // 'IT31A8497112740YZ575DJ28BP4'
-$faker->swiftBicNumber();                       // 'RZTIAT22263'
+$faker->iban($countryCode = null);                                  // 'IT31A8497112740YZ575DJ28BP4'
+$faker->swiftBicNumber();                                           // 'RZTIAT22263'
 ```
 
 ## Test
 
 ```bash
-$ cd ./vendor/supgeek-rod/faker-zh            // Maybe you should go to this package directory
+$ cd ./vendor/supgeek-rod/faker-zh                                // Maybe you should go to this package directory
 $ composer install --dev
 $ php tests/run.php  
 ```
