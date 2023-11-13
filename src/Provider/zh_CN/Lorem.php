@@ -4,6 +4,8 @@ namespace SupGeekRod\FakerZh\Provider\zh_CN;
 
 class Lorem extends \Faker\Provider\Lorem
 {
+    protected static $encoding = 'UTF-8';
+
     protected static $chatList = array(
         '的', '一', '是', '在', '不', '了', '有', '和', '人', '这',
         '中', '大', '为', '上', '个', '国', '我', '以', '要', '他',
@@ -165,4 +167,237 @@ class Lorem extends \Faker\Provider\Lorem
         '联合国，是一个由主权国家组成的政府间国际组织，致力于促进各国在国际法、国际安全、经济发展、社会进步、人权、公民自由、政治自由、民主及实现持久世界和平方面的合作。联合国成立于第二次世界大战结束后的1945年，取代国际联盟以防止战争的发生并为各国提供对话平台。联合国下设了许多附属机构以实现其宗旨。联合国总部设在美国纽约市曼哈顿，并受到治外法权的约束。其他主要办事处设在日内瓦、内罗毕和维也纳。',
         '长城是古代中原为抵御不同时期塞北游牧部落联盟的侵袭，修筑规模浩大的隔离墙或军事工程的统称。长城东西绵延上万华里，因此又称作万里长城。现存的长城遗迹主要为始建于14世纪的明长城，西起嘉峪关，东至虎山长城，长城遗址跨越吉林、辽宁、北京、天津、山西、陕西、宁夏、甘肃等15个省市自治区，总计有43,721处长城遗产，长城也是自人类文明以来最巨大的建筑物。1961年起，一批长城重要点段被陆续公布为全国重点文物保护单位。1987年，长城被联合国教科文组织列为世界文化遗产，该遗产目前不仅包含上述15个省、市、自治区境内的长城，还额外包括了湖南和四川境内的苗疆长城（南长城）等。',
     ];
+
+    /**
+     * Generate a random single Chinese character
+     * @example '的' '一' '是'
+     * @return string
+     */
+    public static function char()
+    {
+        return static::randomElement(static::$wordList);
+    }
+
+    /**
+     * Generate an array of random characters
+     *
+     * @example array('的', '一', '是')
+     * @param  integer      $nb     how many characters to return
+     * @param  bool         $asText if true the sentences are returned as one string
+     * @return array|string
+     */
+    public static function chars($nb = 3, $asText = false)
+    {
+        $chars = static::randomElements(static::$wordList, $nb);
+        return $asText ? implode('', $chars) : $chars;
+    }
+
+    /**
+     * Generate a random word
+     * A chinese word usually contains 1 - 4 single character.
+     *
+     * Character numbers : Frequency
+     * 1 : 10%
+     * 2 : 60%
+     * 3 : 10%
+     * 4 : 20%
+     * The generated words may be unreadable by people.
+     *
+     * Usage:
+     *     Lorem::word();
+     *     Lorem::word(2); // generate word contains exact 2 chars
+     *
+     * @param  integer  $nb  (optional) how many characters the word contains
+     * @example '的' '的一' '的一是' '的一是在'
+     * @return string
+     */
+    public static function word()
+    {
+        $num_args = func_num_args();
+        if ($num_args >= 1) {
+            $nb = func_get_arg(0);
+            if ($nb > 7) {
+                throw new \InvalidArgumentException('Chinese word must contain no more than 7 characters');
+            }
+        } else {
+            $nb = static::randomizeCharacterNumber();
+        }
+        return static::chars($nb, true);
+    }
+
+    /**
+     * Generate an array of random words
+     *
+     * @example array('的一', '的一是', '的一是在')
+     * @param  integer      $nb     how many words to return
+     * @param  bool         $asText if true the sentences are returned as one string
+     * @return array|string
+     */
+    public static function words($nb = 3, $asText = false)
+    {
+        $words = array();
+        for ($i=0; $i < $nb; $i++) {
+            $words[] = static::word();
+        }
+
+        // No space between Chinese words in sentences
+        return $asText ? implode('', $words) : $words;
+    }
+
+    /**
+     * Generate a random sentence
+     *
+     * @example '的一是在不了有。'
+     * @param integer $nbWords         around how many words the sentence should contain
+     * @param boolean $variableNbWords set to false if you want exactly $nbWords returned,
+     *                                  otherwise $nbWords may vary by +/-40% with a minimum of 1
+     * @return string
+     */
+    public static function sentence($nbWords = 6, $variableNbWords = true)
+    {
+        if ($nbWords <= 0) {
+            return '';
+        }
+        if ($variableNbWords) {
+            $nbWords = self::randomizeNbElements($nbWords);
+        }
+
+        $sentence = static::words($nbWords, true);
+        // Chinese characters do not need ucfirst
+
+        return $sentence . '。';
+    }
+
+    /**
+     * Generate an array of sentences
+     *
+     * @example array('的一是在不了有。', '和人这中大。')
+     * @param  integer      $nb     how many sentences to return
+     * @param  bool         $asText if true the sentences are returned as one string
+     * @return array|string
+     */
+    public static function sentences($nb = 3, $asText = false)
+    {
+        $sentences = array();
+        for ($i=0; $i < $nb; $i++) {
+            $sentences[] = static::sentence();
+        }
+
+        // No space between sentence in Chinese
+        return $asText ? implode('', $sentences) : $sentences;
+    }
+
+    /**
+     * Generate a single paragraph
+     *
+     * @example '的一是在不了有。和人这中大。为上个国我以。'
+     * @param integer $nbSentences         around how many sentences the paragraph should contain
+     * @param boolean $variableNbSentences set to false if you want exactly $nbSentences returned,
+     *                                      otherwise $nbSentences may vary by +/-40% with a minimum of 1
+     * @return string
+     */
+    public static function paragraph($nbSentences = 3, $variableNbSentences = true)
+    {
+        if ($nbSentences <= 0) {
+            return '';
+        }
+        if ($variableNbSentences) {
+            $nbSentences = self::randomizeNbElements($nbSentences);
+        }
+
+        return static::sentences($nbSentences, true);
+    }
+
+    /**
+     * Generate an array of paragraphs
+     *
+     * @example array($paragraph1, $paragraph2, $paragraph3)
+     * @param  integer      $nb     how many paragraphs to return
+     * @param  bool         $asText if true the paragraphs are returned as one string, separated by two newlines
+     * @return array|string
+     */
+    public static function paragraphs($nb = 3, $asText = false)
+    {
+        $paragraphs = array();
+        for ($i=0; $i < $nb; $i++) {
+            $paragraphs []= static::paragraph();
+        }
+
+        return $asText ? implode("\n\n", $paragraphs) : $paragraphs;
+    }
+
+    /**
+     * Generate a text string.
+     * Depending on the $maxNbChars, returns a string made of words, sentences, or paragraphs.
+     *
+     * @example '的一是。' '的一是在不了有。' '的一是在不了有。和人这中大。为上个国我以。'
+     *
+     * @param  integer $maxNbChars Maximum number of characters the text should contain (minimum 2).
+     *                             CAUTION: 1 Chinese character == 3 bytes (UTF-8),
+     *                             the parameter is maximum number of CHARACTERS, not number of BYTES.
+     *
+     * @return string
+     */
+    public static function text($maxNbChars = 200)
+    {
+        if ($maxNbChars < 2) {
+            throw new \InvalidArgumentException('text() can only generate text of at least 2 characters');
+        }
+
+        $type = ($maxNbChars < 15) ? 'word' : (($maxNbChars < 100) ? 'sentence' : 'paragraph');
+
+        $text = array();
+        while (empty($text)) {
+            $size = 0;
+
+            // until $maxNbChars is reached
+            while ($size < $maxNbChars) {
+                $word   = static::$type();
+                $text[] = $word;
+
+                $size += static::strlen($word);
+            }
+
+            array_pop($text);
+        }
+
+        if ($type === 'word') {
+            // end sentence with full stop
+            $text[count($text) - 1] .= '。';
+        }
+
+        return implode('', $text);
+    }
+
+    /**
+     * Character numbers : Frequency
+     * 1 : 10%
+     * 2 : 60%
+     * 3 : 10%
+     * 4 : 20%
+     * @return int
+     */
+    protected static function randomizeCharacterNumber()
+    {
+        static $characterNumber = array(
+            1,
+            2, 2, 2, 2, 2, 2,
+            3,
+            4, 4,
+        );
+        return $characterNumber[static::numberBetween(0, count($characterNumber) - 1)];
+    }
+
+    protected static function strlen($str)
+    {
+        if (function_exists('mb_strlen')) {
+            return mb_strlen($str, static::$encoding);
+        } elseif (function_exists('preg_match_all')) {
+            /** @link http://php.net/manual/en/function.mb-strlen.php#87114 */
+            return preg_match_all("/.{1}/us", $str, $dummy);
+        } else {
+            // CAUTION: Only for Chinese UTF-8 characters.
+            return (int)(self::strlen($str) / 3);
+        }
+    }
 }
